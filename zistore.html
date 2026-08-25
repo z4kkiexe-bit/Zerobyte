@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zi Store — Jasa Web Buat Usaha Kamu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --biru-utama: #2563EB;
+      --biru-gelap: #1E40AF;
+      --biru-muda: #DBEAFE;
+      --biru-tip: #EFF6FF;
+      --hitam: #111827;
+      --abu-gelap: #374151;
+      --abu: #6B7280;
+      --abu-muda: #F3F4F6;
+      --putih: #FFFFFF;
+      --border: #E5E7EB;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--putih);
+      color: var(--hitam);
+      line-height: 1.6;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      border-bottom: 1px solid var(--border);
+      background: var(--putih);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--biru-utama);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--hitam); }
+
+    /* ===== TOMBOL — gradien pas hover/active ===== */
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: var(--biru-utama);
+      color: var(--putih);
+      transition: background 0.25s, box-shadow 0.25s;
+    }
+    .btn:hover {
+      background: linear-gradient(135deg, #3B82F6, #1E40AF);
+      box-shadow: 0 4px 14px rgba(37,99,235,0.35);
+    }
+    .btn:active {
+      background: linear-gradient(135deg, #1D4ED8, #1E3A8A);
+      box-shadow: 0 2px 6px rgba(37,99,235,0.4);
+      transform: scale(0.98);
+    }
+    .btn-lg {
+      font-size: 1rem;
+      padding: 14px 32px;
+    }
+    .btn-putih {
+      background: var(--putih);
+      color: var(--biru-utama);
+      font-weight: 700;
+    }
+    .btn-putih:hover {
+      background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+      box-shadow: 0 4px 14px rgba(255,255,255,0.3);
+    }
+    .btn-putih:active {
+      background: linear-gradient(135deg, #DBEAFE, #BFDBFE);
+      transform: scale(0.98);
+    }
+
+    /* ===== HERO ===== */
+    .hero-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 40px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-teks { text-align: left; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--biru-muda);
+      color: var(--biru-utama);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+    .hero-teks h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--hitam);
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+    .hero-teks h1 .aksen { color: var(--biru-utama); }
+    .hero-teks p {
+      font-size: 1rem;
+      color: var(--abu);
+      margin-bottom: 28px;
+      max-width: 440px;
+    }
+
+    /* ilustrasi hero dengan animasi float */
+    .hero-ilustrasi {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-ilustrasi img {
+      width: 100%;
+      max-width: 420px;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 16px 32px rgba(37,99,235,0.12));
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-14px); }
+    }
+
+    /* ===== SECTION WRAPPER ===== */
+    .section {
+      padding: 64px 40px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--biru-utama);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--hitam);
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
+    }
+
+    /* ===== KENAPA PILIH ===== */
+    .kenapa-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .kenapa-card {
+      background: var(--biru-tip);
+      border: 1px solid var(--biru-muda);
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .kenapa-ilustrasi {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+    .kenapa-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--hitam);
+    }
+    .kenapa-card p {
+      font-size: 0.88rem;
+      color: var(--abu);
+      line-height: 1.5;
+    }
+
+    /* ===== LAYANAN ===== */
+    .layanan-section {
+      background: var(--abu-muda);
+      padding: 64px 40px;
+    }
+    .layanan-inner { max-width: 960px; margin: 0 auto; }
+    .layanan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .layanan-card {
+      background: var(--putih);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 24px;
+    }
+    .layanan-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--hitam);
+      margin-bottom: 8px;
+    }
+    .layanan-card p {
+      font-size: 0.87rem;
+      color: var(--abu);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .layanan-harga {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--biru-utama);
+    }
+    .layanan-harga span {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--abu);
+    }
+
+    /* ===== PROSES ===== */
+    .proses-list { display: flex; flex-direction: column; }
+    .proses-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .proses-item:last-child { border-bottom: none; }
+    .proses-nomor {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--biru-utama);
+      background: var(--biru-muda);
+      min-width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .proses-konten h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--hitam);
+      margin-bottom: 4px;
+    }
+    .proses-konten p { font-size: 0.87rem; color: var(--abu); }
+
+    /* ===== CTA BAWAH ===== */
+    .cta-section {
+      background: var(--biru-utama);
+      padding: 64px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+    .cta-ilustrasi {
+      width: 180px;
+      margin-bottom: 8px;
+      opacity: 0.9;
+    }
+    .cta-section h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--putih);
+      letter-spacing: -0.5px;
+    }
+    .cta-section p {
+      color: #BFDBFE;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 40px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--abu);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        padding: 48px 20px 32px;
+        text-align: center;
+      }
+      .hero-teks p { max-width: 100%; }
+      .hero-ilustrasi { order: -1; }
+      .hero-ilustrasi img { max-width: 260px; }
+      .section { padding: 48px 20px; }
+      .layanan-section { padding: 48px 20px; }
+      .cta-section { padding: 48px 20px; }
+      footer { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">Zi<span>Store</span></div>
+    <a href="https://wa.me/62xxxxxxxxxx" class="btn">Chat Sekarang</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-wrapper">
+    <div class="hero-teks">
+      <div class="hero-badge">Jasa Web untuk Usaha Kamu</div>
+      <h1>Website buat usaha kamu,<br /><span class="aksen">tanpa ribet.</span></h1>
+      <p>Zi Store bantu kamu punya website yang rapi dan siap tayang — cocok buat UMKM, toko, jasa, dan usaha kecil yang mau keliatan lebih serius.</p>
+      <a href="https://wa.me/62xxxxxxxxxx" class="btn btn-lg">Konsultasi Gratis via WA</a>
+    </div>
+    <div class="hero-ilustrasi">
+      <img src="undraw_website-builder_4go7.svg" alt="Website terpercaya" />
+    </div>
+  </div>
+
+  <!-- KENAPA PILIH ZI STORE -->
+  <section class="section">
+    <p class="section-label">Kenapa Zi Store?</p>
+    <h2 class="section-title">Buat yang baru mulai, bukan yang udah besar</h2>
+    <div class="kenapa-grid">
+      <div class="kenapa-card">
+        <img class="kenapa-ilustrasi" src="undraw_text-messages_p6bk.svg" alt="Konsultasi" />
+        <h3>Diskusi kebutuhan</h3>
+        <p>Ceritain usaha kamu dan website seperti apa yang kamu bayangkan. Gak perlu ngerti teknis, yang penting kita tau tujuannya.</p>
+      </div>
+      <div class="kenapa-card">
+        <img class="kenapa-ilustrasi" src="undraw_alarm-clock_zgtg.svg" alt="Cepat" />
+        <h3>Kesepakatan & Estimasi</h3>
+        <p>Setelah kebutuhan jelas, kita sepakatin harga dan estimasi waktu bersama sebelum pengerjaan dimulai.</p>
+      </div>
+      <div class="kenapa-card">
+        <img class="kenapa-ilustrasi" src="undraw_pay-with-credit-card_77g6.svg" alt="Harga jelas" />
+        <h3>Harga jelas</h3>
+        <p>Tidak ada biaya tersembunyi. Harga yang disepakati sudah termasuk revisi hingga kamu puas.</p>
+      </div>
+      <div class="kenapa-card">
+        <img class="kenapa-ilustrasi" src="undraw_landing-page_zc5e.svg" alt="Mobile friendly" />
+        <h3>Tampilan Responsif</h3>
+        <p>Website yang dibuat otomatis menyesuaikan tampilan di semua perangkat. HP, tablet, maupun laptop.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYANAN & HARGA -->
+  <div class="layanan-section">
+    <div class="layanan-inner">
+      <p class="section-label">Layanan</p>
+      <h2 class="section-title">Pilih yang sesuai kebutuhan</h2>
+      <div class="layanan-grid">
+        <div class="layanan-card">
+          <h3>Landing Page</h3>
+          <p>Cocok buat promosi produk atau jasa. Satu halaman, langsung ke intinya.</p>
+          <div class="layanan-harga">Rp 100.000 <span>/ website</span></div>
+        </div>
+        <div class="layanan-card">
+          <h3>Company Profile</h3>
+          <p>Buat usaha kamu keliatan lebih serius. Ada halaman tentang, layanan, dan kontak.</p>
+          <div class="layanan-harga">Rp 150.000 <span>/ website</span></div>
+        </div>
+        <div class="layanan-card">
+          <h3>+ Custom Domain</h3>
+          <p>Mau pakai nama domain sendiri? Bisa dibantu setup sampai jalan.</p>
+          <div class="layanan-harga">+ Rp 50.000 <span>/ setup</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARA KERJA -->
+  <section class="section">
+    <p class="section-label">Cara Kerja</p>
+    <h2 class="section-title">Dari chat sampai website jadi</h2>
+    <div class="proses-list">
+      <div class="proses-item">
+        <div class="proses-nomor">01</div>
+        <div class="proses-konten">
+          <h3>Chat & Ceritain Kebutuhan</h3>
+          <p>Kamu cerita mau website kayak gimana — warna, isi, tujuannya apa.</p>
+        </div>
+      </div>
+      <div class="proses-item">
+        <div class="proses-nomor">02</div>
+        <div class="proses-konten">
+          <h3>Kita Sepakatin Dulu</h3>
+          <p>Gua kasih estimasi waktu dan harga. Kalau cocok, baru mulai dikerjain.</p>
+        </div>
+      </div>
+      <div class="proses-item">
+        <div class="proses-nomor">03</div>
+        <div class="proses-konten">
+          <h3>Pengerjaan 3–5 Hari</h3>
+          <p>Kamu bisa lihat progresnya. Kalau ada yang kurang cocok, bilang aja.</p>
+        </div>
+      </div>
+      <div class="proses-item">
+        <div class="proses-nomor">04</div>
+        <div class="proses-konten">
+          <h3>Website Siap Tayang</h3>
+          <p>Setelah revisi beres, website langsung di-deploy dan bisa diakses siapa aja.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAWAH -->
+  <section class="cta-section">
+    <img class="cta-ilustrasi" src="undraw_comment-sent_8c4r.svg" alt="Siap mulai" />
+    <h2>Siap punya website?</h2>
+    <p>Chat sekarang, konsultasi gratis. Gak ada kewajiban buat lanjut.</p>
+    <a href="https://wa.me/62xxxxxxxxxx" class="btn btn-lg btn-putih">Chat via WhatsApp</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Zi Store
+  </footer>
+
+</body>
+</html>
