@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        </style>
+        <link rel="stylesheet" href="testfile.css">
+    </head>
+    <body>
+        <title>Sandbox 51</title>
+        <button onmouseleave="hoverNotif()"class="button-hover">
+        jangan hover
+        </button>
+        <input 
+        placeholder="Ketik nama disini"
+        class="input"
+        >
+        <button
+        class="button"
+        onclick="tampilNama()"
+        >
+        Review
+        </button>
+        <button
+        onclick="simpanNama()"
+        >
+        Simpan
+        </button>
+        <button 
+        onclick="localStorage.clear()"
+        >
+            Reset
+        </button>
+        <p class="hasil" >Namamu:</p>
+        <button class="addButton" onclick="AddButton()">+1</button>
+        <button class="addButton" onclick="RemoveButton()">-1</button>
+        <button class="resetButton1" onclick="ResetButton()">Reset</button>
+        <p class="valueShow"></p>
+        <div class="imgBox"></div>
+        <div class="istri"></div>
+        <button class="inputButtonShow" onclick="showOutput()">Show Input</button>
+        <div class="outputLocation1"></div>
+        <button class="placeholderButtonBro">Placeholder</button>
+        <div class="MenuElement"></div>
+        <script src="testfile.js" defer></script>
+    </body>
+
+</html>
+

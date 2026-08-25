@@ -1,0 +1,38 @@
+.body{
+                font:Helvetica;
+            }
+            .button-hover{
+                background-color:black;
+                border: none;
+                font-weight:bold;
+                color:white;
+                padding-top:15px;
+                padding-bottom:15px;
+                padding-left:20px;
+                padding-right:20px;
+                cursor:pointer;
+                border-radius:50px;
+                display:block;
+            }
+            .input {
+                margin-top:20px;
+            }
+            .button {
+                cursor:pointer;
+            }
+            
+            .gambarDua{
+                height: 300px;
+                width: 400px;
+            }
+            .gambarSatu{
+                height: 250px;
+                width: 250px;
+            }
+            .fart-Text{
+                margin-left: 5px;
+                color: red
+            }
+            .MenuElement{
+                margin: 10px
+            }
