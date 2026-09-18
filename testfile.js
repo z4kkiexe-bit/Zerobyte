@@ -1,3 +1,5 @@
+
+
 const user = localStorage.getItem("namaUser") || "Kamu belum memasukkan nama."
 let array = ["Abdul","Rahman","jamal","kino"]
 
@@ -67,7 +69,7 @@ array.forEach((value,index)=>{
                 console.log(event.key)
             })
             const container = document.querySelector(".MenuElement")
-            const AudioFun = new Audio("bark-fart-sound.mp3")
+            const AudioFun = new Audio("Mp3/bark-fart-sound.mp3")
             let Bark;
             const arrayHTML = [{
                 Menu: {
@@ -108,3 +110,21 @@ array.forEach((value,index)=>{
                     },1000)
                 })
             })
+
+
+                async function LoadBackend() {
+                    try {
+                        const response = await fetch("https://supersimplebackend.dev/hello")
+                        if(!response.ok){
+                            throw new Error(`Error bradar ${response.status}`)
+                        }
+                        return response
+                    }catch(error) {
+                        console.log("Unexpected error")
+                    }
+                
+                }
+
+
+                const skibidi = LoadBackend()
+                console.log(skibidi)

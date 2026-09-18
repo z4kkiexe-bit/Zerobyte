@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+#KPI-header {
+    text-align: center;
+    align-items: center;
+    padding-bottom: 83px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}

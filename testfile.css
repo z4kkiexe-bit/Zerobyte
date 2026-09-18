@@ -1,6 +1,6 @@
 .body{
-                font:Helvetica;
-            }
+        font:Helvetica;
+    }
             .button-hover{
                 background-color:black;
                 border: none;
@@ -35,4 +35,37 @@
             }
             .MenuElement{
                 margin: 10px
+            }
+            .add-to-cart {
+                background-color:black;
+                color:yellow;
+                font:Helvetica;
+                border:none;
+                border-width:1.5px;
+                width:95px;
+                height:40px;
+                border-radius:16px;
+                padding-bottom:10px;
+                padding-top:10px;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                white-space:nowrap;
+                margin-top:15px;
+                font-weight:bold;
+                box-shadow: 9px 9px 0 yellow;
+                transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+            }
+
+            .add-to-cart:hover {
+                background-color:black;
+                color:yellow;
+                
+                
+            }
+            .add-to-cart:active {
+                opacity: 0.6;
+                transform: translate(6px, 6px);
+                box-shadow:0 0 0 0;
+
             }
